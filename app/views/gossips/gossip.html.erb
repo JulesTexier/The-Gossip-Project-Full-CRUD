@@ -1,0 +1,17 @@
+
+<div class="jumbotron jumbotron-fluid" style="background:url(https://omny.fm/shows/gossip/12-basement-bethany/image.jpg?t=1555508442&size=WideShare)">
+  <div class="container">
+    <h1 class="display-4"><%= @gossip.title%></h1>
+    <p class="lead"> publié le : <%= @gossip.created_at.strftime ("%d %B %Y") %></p>
+  </div>
+</div>
+
+<div class="position-relative">
+    <blockquote class="blockquote text-center">
+    <p class="display-4"><%=@gossip.content %></p>
+    <footer class="blockquote-footer">Auteur : <%= @gossip.user.first_name%> <%= link_to "(En savoir plus sur l'auteur)", user_path(@gossip.user_id) %></footer>
+    </blockquote>
+</div>
+
+
+
