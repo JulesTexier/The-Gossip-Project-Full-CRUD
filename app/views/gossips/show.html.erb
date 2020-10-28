@@ -13,9 +13,12 @@
 <div class="position-relative">
     <blockquote class="blockquote text-center">
     <p class="display-4"><%=@gossip.content %></p>
-    <footer class="blockquote-footer">Auteur : <%= @gossip.user.first_name%> <%= link_to "(En savoir plus sur l'auteur)", user_path(@gossip.user_id) %></footer>
-    <footer class="footer">Ville : <%= @gossip.user.city.name%></footer>
+    <footer class="footer">Auteur : <%= @gossip.user.first_name %> <%= link_to "(En savoir plus)", user_path(@gossip.user_id) %></footer>
+    <footer class="blockquote-footer">Ville : <%= @gossip.user.city.name %><%= link_to "(En savoir plus)", city_path(@gossip.user.city_id) %></footer>
+    <br>
+    <%= link_to "Editer le Gossip", edit_gossip_path(@gossip.id) %>
     </blockquote>
+
 </div>
 
 
