@@ -5,14 +5,16 @@
     <p class="lead">Bienvenue dans l'application Rails qui déchire ! </p>
   </div>
 </div>
-        <% all_gossips = Gossip.all %>       
-        <div class="card-columns">
-        <%all_gossips.each_with_index do |gossip, index| %>
-                <div class="card">
-                    <div class="card-body">
-                    <h5 class="card-title"> Gossip N° <%=index+=1%> <%= gossip.title %></h5>
-                    <p class="card-text"><%=gossip.user.first_name%></p>
-                    <%= link_to "Cliquez ici", gossip_path(gossip.id) %>
-                    </div>
+
+
+    <% all_gossips = Gossip.all %>       
+    <div class="card-columns">
+    <%all_gossips.each_with_index do |gossip, index| %>
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title"> Gossip N° <%=index+=1%> <%= gossip.title %></h5>
+                <p class="card-text"><%=gossip.user.first_name%></p>
+                <%= link_to "Cliquez ici", gossip_path(gossip) %>
                 </div>
-        <%end%>
+            </div>
+    <%end%>

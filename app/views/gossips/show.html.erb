@@ -5,7 +5,11 @@
     <p class="lead"> publié le : <%= @gossip.created_at.strftime ("%d %B %Y") %></p>
   </div>
 </div>
-
+<% if @gossip.save && @gossip.id == Gossip.all.last.id %>
+    <div class="alert alert-success" role="alert" >
+      <p>Félicitation, ton gossip est bien créé! </p>
+    </div>
+  <% end %>
 <div class="position-relative">
     <blockquote class="blockquote text-center">
     <p class="display-4"><%=@gossip.content %></p>

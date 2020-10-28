@@ -1,11 +1,20 @@
 class GossipsController < ApplicationController
-  def gossip
-      @gossip = Gossip.find(params[:gossip])
+  def show
+      @gossip = Gossip.find(params[:id])
   end
-  
-end
-#   def author
-#       @author = User.find(params[:user])
-#   end
 
+  def new
+    @gossip = Gossip.new
+  end
+
+  def create
+    @gossip = Gossip.new(title: params['title'], content: params['content'], user: User.find(35))
+  
+    if @gossip.save
+      redirect_to @gossip
+    else
+      render ('new')
+    end
+  end
+end
 

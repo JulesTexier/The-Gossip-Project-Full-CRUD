@@ -1,4 +1,9 @@
 class Gossip < ApplicationRecord
+  validates :title, presence: true,
+  length: { in: 3..14 }
+
+  validates :content, presence: true
+
   belongs_to :user
 
   has_many :linktags
@@ -6,5 +11,4 @@ class Gossip < ApplicationRecord
 
   has_many :comments
 
-  
 end
