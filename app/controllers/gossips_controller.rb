@@ -19,15 +19,23 @@ class GossipsController < ApplicationController
 
   def edit
     @gossip = Gossip.find(params[:id])
+    
   end
   
   def update
-      @model = Model.find(params[:id])
-      if @model.update(tes_params)
-        redirect_to @model
-      else
+      @gossip = Gossip.find(params[:id])
+      gossip_params = params.require(:gossip).permit(:title, :content)
+      if @gossip.update(gossip_params)
+        redirect_to @gossip
+        else 
         render :edit
       end
+  end
+
+  def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.destroy
+    redirect_to root_path
   end
 end
 

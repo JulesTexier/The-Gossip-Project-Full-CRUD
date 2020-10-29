@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get '/static_pages/', to: 'static_pages#home'
   root 'static_pages#home'
     
-  resources :gossips, except: [:destroy, :update]  
+  resources :gossips
   resources :users, except: [:destroy, :update]
   resources :cities, except: [:destroy, :update]
+  ressorces :comments
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

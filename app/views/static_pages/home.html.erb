@@ -14,7 +14,8 @@
                 <div class="card-body">
                 <h5 class="card-title"> Gossip N° <%=index+=1%> <%= gossip.title %></h5>
                 <p class="card-text"><%=gossip.user.first_name%></p>
-                <%= link_to "Cliquez ici", gossip_path(gossip) %>
+                <a href='<%=gossip_path(gossip)%>'class ="btn btn-outline-secondary">Lire le Gossip</a>
+                 <a href='<%=gossip_path(gossip)%>'class="btn btn-outline-danger" data-confirm="Êtes-vous sû(e)?" data-method="DELETE"> Supprimer </a>
                 </div>
             </div>
     <%end%>

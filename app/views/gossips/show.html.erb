@@ -12,12 +12,25 @@
   <% end %>
 <div class="position-relative">
     <blockquote class="blockquote text-center">
-    <p class="display-4"><%=@gossip.content %></p>
-    <footer class="footer">Auteur : <%= @gossip.user.first_name %> <%= link_to "(En savoir plus)", user_path(@gossip.user_id) %></footer>
-    <footer class="blockquote-footer">Ville : <%= @gossip.user.city.name %><%= link_to "(En savoir plus)", city_path(@gossip.user.city_id) %></footer>
+    <p class="display-4">"<%=@gossip.content %>"</p>
+    <footer class="footer">Auteur : <%= link_to @gossip.user.first_name, user_path(@gossip.user_id) %></footer>
+    <footer class="footer">Ville : <%= link_to @gossip.user.city.name, city_path(@gossip.user.city_id) %></footer>
     <br>
-    <%= link_to "Editer le Gossip", edit_gossip_path(@gossip.id) %>
+    <a href="<%= edit_gossip_path(@gossip.id) %>" class="btn btn-outline-dark" role="button" aria-pressed="true">Editer le Gossip</a>
     </blockquote>
+
+
+<h3 class="text-center"> Faire un commentaire </h3>
+  <div class="mx-auto" style="width: 600px;" button>
+    <%= form_for @gossip do |f| %>
+        <div class='form-group'>
+            <%= f.text_area :content, class:'form-control'%>
+        </div>
+        <div class='form-group'>
+            <button type='submit' class='btn btn-outline-dark'> Modifier </button>
+        </div> 
+    <% end %>
+</div>
 
 </div>
 
